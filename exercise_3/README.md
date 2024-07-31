@@ -7,6 +7,9 @@
 K-Nearest Neighbors (KNN) is a simple yet effective classification algorithm. It operates on the principle that data points close to each other in feature space are likely to belong to the same class.
 - **Data:** The MNIST dataset is used for training and testing the model. The data is divided into feature points (images of digits) and labels (corresponding digits).
 
+### Model training results
+![Logistic regression model](../assets/images/accuracy_1.png)
+
 ### Benefits
 - **Simplicity and Understandability:** KNN is easy to implement and understand, requiring no complex training.
 - **No Training Required:** KNN does not require a formal training process; it simply stores the training set and performs comparisons during prediction.
@@ -25,6 +28,9 @@ Triplet Loss is typically used to train Siamese networks in classification tasks
 
 Siamese Networks are a type of neural network designed to learn embeddings for data points. This network consists of two branches sharing weights, each receiving input and computing embeddings for samples.
 - **Triplet Loss:** This loss function is used to optimize the embedding space so that similar points are closer together and dissimilar points are farther apart. It uses three samples: anchor, positive, and negative.
+
+### Model training results
+![Siamese model q](../assets/images/accuracy_3.png)
 
 ### Benefits
 - **Better Recognition Capability:** Siamese Networks with Triplet Loss learn to better distinguish between similar and dissimilar characters, making the model more effective at recognizing variations in optical characters.
