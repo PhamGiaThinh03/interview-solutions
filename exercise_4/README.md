@@ -11,8 +11,11 @@
 - pytest
 
 ![Pytest](../assets/images/pytest.png)
+![Postman](../assets/images/postman.png)
+
 
 ## CI/CD
  - POST: http://localhost:8010/predict
 
- ![Postman](../assets/images/postman.png)
+![CICD](../assets/images/cicd.png)
+![Dockerhub](../assets/images/dockerhub.png)

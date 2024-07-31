@@ -8,15 +8,17 @@ Triplet loss is a loss function used in machine learning to learn embeddings. It
 
 In its standard form, the triplet loss is defined as:
 
-\[ L(a, p, n) = max(0, d(a, p) - d(a, n) + alpha) \]
+$$
+L(a, p, n) = max(0, d(a, p) - d(a, n) + alpha)
+$$
 
 where:
 
-- \( a \) is the anchor input.
-- \( p \) is the positive input (similar to the anchor).
-- \( n \) is the negative input (dissimilar to the anchor).
-- \( d \) is a distance metric (e.g., Euclidean distance).
-- \( alpha \) is a margin that ensures that the negative is at least \( \alpha \) farther from the anchor than the positive.
+- $ a $ is the anchor input.
+- $ p $ is the positive input (similar to the anchor).
+- $ n $ is the negative input (dissimilar to the anchor).
+- $ d $ is a distance metric (e.g., Euclidean distance).
+- $ alpha $ is a margin that ensures that the negative is at least $ \alpha $ farther from the anchor than the positive.
 
 ### Application
 
@@ -34,18 +36,20 @@ When applying expanded Triplet Loss with multiple positive and negative samples,
 
 Given:
 
-- \( a \) is the anchor input.
-- \( p_1, p_2 \) are the positive inputs (similar to the anchor).
-- \( n_1, n_2, n_3, n_4, n_5 \) are the negative inputs (dissimilar to the anchor).
+- $ a $ is the anchor input.
+- $ p_1, p_2 $ are the positive inputs (similar to the anchor).
+- $ n_1, n_2, n_3, n_4, n_5 $ are the negative inputs (dissimilar to the anchor).
 
 The expanded triplet loss can be formulated as:
 
-\[ L(a, P, N) = \sum_{i=1}^{2} \sum_{j=1}^{5} \max(0, d(a, p_i) - d(a, n_j) + \alpha) \]
+$$
+L(a, P, N) = \sum_{i=1}^{2} \sum_{j=1}^{5} \max(0, d(a, p_i) - d(a, n_j) + \alpha) \
+$$
 
 where:
 
-- \( P = \{p_1, p_2\} \) is the set of positive inputs.
-- \( N = \{n_1, n_2, n_3, n_4, n_5\} \) is the set of negative inputs.
+- $ P = \{p_1, p_2\} $ is the set of positive inputs.
+- $ N = \{n_1, n_2, n_3, n_4, n_5\} $ is the set of negative inputs.
 
 This formula ensures that each positive sample is closer to the anchor than any negative sample by at least the margin \( \alpha \).
 
