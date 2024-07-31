@@ -44,16 +44,16 @@ def extended_triplet_loss(anchor, positives, negatives, margin=1.0):
     return loss
 
 
-# Example data points:
-anchor = np.array([2.0, 7.0])
-positives = [np.array([1.1, 2.1]), np.array([1.2, 2.2])]
-negatives = [
-    np.array([3.0, 3.0]),
-    np.array([4.0, 4.0]),
-    np.array([5.0, 5.0]),
-    np.array([6.0, 6.0]),
-    np.array([7.0, 7.0]),
-]
+if __name__ == "__main":
+    anchor = np.array([2.0, 7.0])
+    positives = [np.array([1.1, 2.1]), np.array([1.2, 2.2])]
+    negatives = [
+        np.array([3.0, 3.0]),
+        np.array([4.0, 4.0]),
+        np.array([5.0, 5.0]),
+        np.array([6.0, 6.0]),
+        np.array([7.0, 7.0]),
+    ]
 
-loss = extended_triplet_loss(anchor, positives, negatives)
-print(f"Extended triplet loss: {loss}")
+    loss = extended_triplet_loss(anchor, positives, negatives)
+    print(f"Extended triplet loss: {loss}")

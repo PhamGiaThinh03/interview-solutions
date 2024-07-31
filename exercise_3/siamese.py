@@ -195,15 +195,15 @@ def read_ubyte(file_name):
         shape = tuple(struct.unpack(">I", file.read(4))[0] for _ in range(dims))
         return np.frombuffer(file.read(), dtype=np.uint8).reshape(shape)
 
+if __name__ == "__main__":
+    train_images = read_ubyte(CFG.train_images_path)
+    train_images = train_images.reshape(-1, 28 * 28)
+    train_labels = read_ubyte(CFG.train_labels_path)
 
-train_images = read_ubyte(CFG.train_images_path)
-train_images = train_images.reshape(-1, 28 * 28)
-train_labels = read_ubyte(CFG.train_labels_path)
+    test_images = read_ubyte(CFG.test_images_path)
+    test_images = test_images.reshape(-1, 28 * 28)
+    test_labels = read_ubyte(CFG.test_labels_path)
 
-test_images = read_ubyte(CFG.test_images_path)
-test_images = test_images.reshape(-1, 28 * 28)
-test_labels = read_ubyte(CFG.test_labels_path)
-
-train_triplet_dataset = TripletMNIST(train_images, train_labels)
-train_loader = DataLoader(train_triplet_dataset, batch_size=32, shuffle=True)
-train(model, criterion, optimizer, train_loader)
+    train_triplet_dataset = TripletMNIST(train_images, train_labels)
+    train_loader = DataLoader(train_triplet_dataset, batch_size=32, shuffle=True)
+    train(model, criterion, optimizer, train_loader)

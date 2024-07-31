@@ -39,11 +39,11 @@ def triplet_loss(anchor, positive, negative, margin=1.0):
     return loss
 
 
-# Example data points:
-anchor = np.array([2.0, 7.0])
-positive = np.array([1.1, 2.1])
-negative = np.array([3.0, 3.0])
+if __name__ == "__main__":
+    anchor = np.array([2.0, 7.0])
+    positive = np.array([1.1, 2.1])
+    negative = np.array([3.0, 3.0])
 
-# Calculate and print the triplet loss for the example data points
-loss = triplet_loss(anchor, positive, negative)
-print(f"Triplet loss: {loss}")
+    # Calculate and print the triplet loss for the example data points
+    loss = triplet_loss(anchor, positive, negative)
+    print(f"Triplet loss: {loss}")
