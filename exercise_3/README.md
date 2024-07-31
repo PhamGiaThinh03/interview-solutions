@@ -1,26 +1,27 @@
 # Comparison of Approaches for Optical Character Classification
 
-## Exercise 1: Basic Machine Learning with KNN
+## Exercise 1: Basic Machine Learning with Linear Regression
 
 ### Approach
 
-K-Nearest Neighbors (KNN) is a simple yet effective classification algorithm. It operates on the principle that data points close to each other in feature space are likely to belong to the same class.
+Linear Regression is a fundamental machine learning algorithm used for predicting continuous target variables based on input features. For classification tasks, logistic regression, a variant of linear regression, is often used. It models the probability that a given input belongs to a particular class.
 - **Data:** The MNIST dataset is used for training and testing the model. The data is divided into feature points (images of digits) and labels (corresponding digits).
 
 ### Model training results
 ![Logistic regression model](../assets/images/accuracy_1.png)
 
 ### Benefits
-- **Simplicity and Understandability:** KNN is easy to implement and understand, requiring no complex training.
-- **No Training Required:** KNN does not require a formal training process; it simply stores the training set and performs comparisons during prediction.
+- **Simplicity and Understandability:** Linear Regression is easy to implement and understand.
+- **Efficiency:** Computationally efficient for small to medium-sized datasets.
 
 ### Drawbacks
-- **Poor Performance with Large Data:** KNN can struggle with large datasets because it needs to compute distances between the test point and all training points, leading to poor performance and long prediction times.
-- **Limited Fine-Tuning Capability:** KNN does not learn features from data, so it cannot improve through training iterations like other machine learning models.
+- **Poor Performance with Non-linear Data:**  Assumes a linear relationship, which can be limiting for complex datasets.
+- **Sensitivity to Outliers:** Can be skewed by outliers, leading to inaccurate predictions.
+- **Limited Capability for Complex Relationships:** Not suitable for capturing non-linear relationships in data.
 
 ## Highlight
 
-Triplet Loss is typically used to train Siamese networks in classification tasks based on similarity and dissimilarity between samples, rather than simple classification tasks. Therefore, Exercise 3 utilized Siamese networks with Triplet Loss.
+While Linear Regression is suitable for regression tasks and simple classification, its limitations make it less ideal for complex classification tasks involving high variability. Triplet Loss is typically used to train Siamese networks in classification tasks based on similarity and dissimilarity between samples, rather than simple classification tasks. Therefore, Exercise 3 utilized Siamese networks with Triplet Loss.
 
 ## Exercise 3: Deep Learning with Siamese Networks and Triplet Loss
 
@@ -41,13 +42,40 @@ Siamese Networks are a type of neural network designed to learn embeddings for d
 - **Complexity and Time Consumption:** Implementing and training Siamese Networks with Triplet Loss is more complex compared to KNN. Selecting and fine-tuning triplets (anchor, positive, negative) also requires careful consideration.
 - **Training Time Required:** The model needs time to train to optimize embeddings and Triplet Loss, which can be computationally expensive.
 
-### Comparison
+## Comparison
 
-- **Classification Capability:** Siamese Networks with Triplet Loss generally achieve better performance when distinguishing between similar and dissimilar samples in the embedding space, whereas KNN may struggle with variability in data.
-- **Performance and Resources:** KNN is simple and easy to implement but is not suitable for large datasets. Siamese Networks with Triplet Loss require more computational resources but offer improved classification accuracy and generalization.
-- **Practical Applications:** In real-world scenarios with high variability and fine distinction requirements, Siamese Networks with Triplet Loss offer clear advantages over KNN.
+### Classification Capability
 
-## Alternatives to Triplet Loss for Optical Character Classification
+- **Linear Regression**: 
+  - Primarily used for regression tasks and binary classification. It is effective for problems where the relationship between features and target variables is linear.
+  - Struggles with complex, non-linear datasets and high variability. It may not perform well in distinguishing between classes in cases where the decision boundaries are not linear.
+
+- **Siamese Networks with Triplet Loss**: 
+  - Designed for tasks where distinguishing between similar and dissimilar samples is crucial. This approach is effective at learning embeddings and comparing the similarity between samples.
+  - Excels in handling high variability and distinguishing between classes even when the differences between them are subtle.
+
+### Performance and Resources
+
+- **Linear Regression**: 
+  - Efficient and fast, especially for small to medium-sized datasets. It requires minimal computational resources and can quickly train and make predictions.
+  - Limited in its ability to handle non-linear relationships, which can impact performance on more complex tasks.
+
+- **Siamese Networks with Triplet Loss**: 
+  - Requires significant computational resources and longer training times due to the complexity of training neural networks and optimizing the embedding space with Triplet Loss.
+  - Offers improved classification accuracy and generalization, particularly in scenarios with high variability and complex relationships.
+
+### Practical Applications
+
+- **Linear Regression**: 
+  - Suitable for simple regression tasks and binary classification problems where the relationship between features and the target is linear. Examples include predicting house prices or classifying items into two distinct categories.
+  - Less effective for tasks requiring sophisticated pattern recognition or handling complex, non-linear data.
+
+- **Siamese Networks with Triplet Loss**: 
+  - Ideal for tasks that require precise differentiation between similar samples, such as facial recognition, signature verification, and other scenarios where distinguishing subtle differences is critical.
+  - Particularly useful in applications with high variability and where learning a meaningful embedding space is crucial for effective classification.
+
+
+### Alternatives to Triplet Loss for Optical Character Classification
 
 Here are some alternative approaches to Triplet Loss for optical character classification:
 
